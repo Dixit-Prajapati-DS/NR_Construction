@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NR Construction - Projects</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&amp;family=Work+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            "colors": {
+                "tertiary-fixed-dim": "#c7c6c6",
+                "surface-container": "#eeeeee",
+                "secondary-fixed-dim": "#c8c6c5",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-highest": "#e2e2e2",
+                "on-secondary": "#ffffff",
+                "primary-fixed": "#ffdbce",
+                "surface-tint": "#a63c00",
+                "primary": "#a23a00",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed": "#1b1c1c",
+                "on-primary-container": "#fffbff",
+                "primary-fixed-dim": "#ffb598",
+                "surface-container-low": "#f3f3f3",
+                "on-error-container": "#93000a",
+                "tertiary-container": "#747474",
+                "tertiary": "#5c5c5c",
+                "on-tertiary-fixed-variant": "#464747",
+                "on-surface-variant": "#5a4137",
+                "surface-dim": "#dadada",
+                "on-secondary-fixed-variant": "#474746",
+                "inverse-on-surface": "#f1f1f1",
+                "on-surface": "#1a1c1c",
+                "on-primary-fixed-variant": "#7e2c00",
+                "on-tertiary": "#ffffff",
+                "on-primary-fixed": "#370e00",
+                "on-primary": "#ffffff",
+                "inverse-primary": "#ffb598",
+                "primary-container": "#ca4b00",
+                "on-secondary-container": "#636262",
+                "inverse-surface": "#2f3131",
+                "secondary-container": "#e2dfde",
+                "secondary": "#5f5e5e",
+                "on-tertiary-container": "#fefcfc",
+                "secondary-fixed": "#e5e2e1",
+                "surface": "#f9f9f9",
+                "surface-bright": "#f9f9f9",
+                "outline-variant": "#e3bfb2",
+                "on-background": "#1a1c1c",
+                "error-container": "#ffdad6",
+                "background": "#f9f9f9",
+                "surface-variant": "#e2e2e2",
+                "outline": "#8e7165",
+                "on-secondary-fixed": "#1c1b1b",
+                "surface-container-high": "#e8e8e8",
+                "on-error": "#ffffff",
+                "tertiary-fixed": "#e4e2e2"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "section-padding": "120px",
+                "margin-desktop": "80px",
+                "gutter": "32px",
+                "margin-mobile": "20px",
+                "base-unit": "8px"
+            },
+            "fontFamily": {
+                "headline-md": ["Sora"],
+                "headline-lg": ["Sora"],
+                "headline-display": ["Sora"],
+                "label-bold": ["Work Sans"],
+                "body-lg": ["Work Sans"],
+                "headline-lg-mobile": ["Sora"],
+                "body-md": ["Work Sans"]
+            },
+            "fontSize": {
+                "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                "headline-display": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                "label-bold": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+            },
+            animation: {
+                'float': 'float 6s ease-in-out infinite',
+                'shimmer': 'shimmer 2s linear infinite',
+            },
+            keyframes: {
+                float: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-20px)' },
+                },
+                shimmer: {
+                    '0%': { backgroundPosition: '-200% 0' },
+                    '100%': { backgroundPosition: '200% 0' },
+                },
+            },
+        }
+    }
+}
+</script>
+<style>
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.material-symbols-outlined.fill {
+    font-variation-settings: 'FILL' 1;
+}
+.clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
+}
+.clip-diagonal-reverse {
+    clip-path: polygon(0 4vw, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Scroll Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* Card 3D hover */
+.card-3d {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-3d:hover {
+    transform: translateY(-8px) rotateX(2deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Button shine */
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+.btn-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+.btn-shine:hover::before {
+    left: 100%;
+}
+
+/* Animated underline */
+.animated-underline {
+    position: relative;
+}
+.animated-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #a23a00;
+    transition: width 0.3s ease;
+}
+.animated-underline:hover::after {
+    width: 100%;
+}
+
+/* Loader */
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #2f3131;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+.loader-bar {
+    width: 200px;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+.loader-bar::after {
+    content: '';
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: #a23a00;
+    border-radius: 2px;
+    animation: loading 1s ease-in-out infinite;
+}
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(350%); }
+}
+
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f9f9f9; }
+::-webkit-scrollbar-thumb { background: #a23a00; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #ca4b00; }
+
+/* Filter button active state */
+.filter-btn.active {
+    background: #a23a00;
+    color: #ffffff;
+    border-color: #a23a00;
+}
+
+/* Project card overlay */
+.project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(47, 49, 49, 0.9) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+/* Fade transition for filtered items */
+.project-item {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.project-item.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+    position: absolute;
+}
+</style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary selection:text-on-primary">
+<!-- Loading Screen -->
+<div class="loader" id="loader">
+    <div class="flex flex-col items-center gap-4">
+        <span class="material-symbols-outlined text-primary text-5xl fill-icon animate-pulse">domain</span>
+        <div class="loader-bar"></div>
+    </div>
+</div>
+
+<!-- TopNavBar -->
+<nav class="bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-lg w-full z-50 border-b border-outline-variant/50 dark:border-outline transition-all duration-300" id="navbar">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-full mx-auto">
+    <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[32px] fill-icon">domain</span>
+        <span class="text-headline-md font-headline-md font-extrabold text-on-surface dark:text-inverse-on-surface uppercase tracking-tight">NR Construction</span>
+    </div>
+    <div class="hidden md:flex items-center gap-gutter">
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors duration-300 animated-underline" href="index.html">Home</a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors duration-300 animated-underline" href="about.html">About</a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors duration-300 animated-underline" href="services.html">Services</a>
+        <a class="text-primary dark:text-inverse-primary border-b-2 border-primary pb-1 text-label-bold font-label-bold hover:text-primary transition-colors duration-300 animated-underline" href="projects.html">Projects</a>
+    </div>
+    <div class="hidden md:flex items-center gap-4">
+        <button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container">
+            <span class="material-symbols-outlined">search</span>
+        </button>
+        <a href="contact.html" class="bg-primary hover:bg-primary-container text-on-primary font-label-bold text-label-bold px-6 py-3 rounded uppercase tracking-wider transition-all duration-300 shadow-[0_4px_0_0_#7e2c00] hover:shadow-[0_2px_0_0_#7e2c00] hover:translate-y-[2px] inline-block btn-shine">
+            Get in Touch
+        </a>
+    </div>
+    <button class="md:hidden text-on-surface-variant p-2" id="mobile-menu-btn">
+        <span class="material-symbols-outlined" id="menu-icon">menu</span>
+    </button>
+</div>
+<div class="md:hidden hidden bg-surface border-t border-outline-variant" id="mobile-menu">
+    <div class="flex flex-col p-6 gap-4">
+        <a class="text-on-surface-variant text-label-bold font-label-bold py-2 border-b border-outline-variant/30" href="index.html">Home</a>
+        <a class="text-on-surface-variant text-label-bold font-label-bold py-2 border-b border-outline-variant/30" href="about.html">About</a>
+        <a class="text-on-surface-variant text-label-bold font-label-bold py-2 border-b border-outline-variant/30" href="services.html">Services</a>
+        <a class="text-primary text-label-bold font-label-bold py-2" href="projects.html">Projects</a>
+        <a href="contact.html" class="bg-primary text-on-primary font-label-bold text-label-bold px-6 py-3 rounded uppercase tracking-wider text-center mt-4">Get in Touch</a>
+    </div>
+</div>
+</nav>
+
+<main>
+<!-- Hero Section -->
+<section class="bg-surface-container-high pt-section-padding pb-section-padding clip-diagonal relative px-margin-mobile md:px-margin-desktop overflow-hidden">
+    <!-- Animated geometric shapes -->
+    <div class="absolute top-1/4 right-1/4 w-48 h-48 border border-primary/10 rounded-full animate-float opacity-20"></div>
+    
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+            <div class="md:col-span-8 flex flex-col justify-center">
+                <span class="font-label-bold text-label-bold text-primary mb-4 flex items-center gap-2 uppercase tracking-widest reveal">
+                    <span class="w-8 h-1 bg-primary block"></span> Portfolio
+                </span>
+                <h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-display md:text-headline-display text-on-surface mb-6 reveal stagger-1">
+                    Building Structural Integrity &amp; Industrial Excellence
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl reveal stagger-2">
+                    Explore our recent deployments across commercial, industrial, and residential sectors. Every structure is a testament to mechanical precision, unwavering reliability, and materials built to last.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-60">
+        <span class="text-on-surface-variant text-xs uppercase tracking-widest">Scroll</span>
+        <span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+    </div>
+</section>
+
+<!-- Projects Grid Section -->
+<section class="py-section-padding px-margin-mobile md:px-margin-desktop bg-background">
+    <div class="max-w-7xl mx-auto">
+        <!-- Filters -->
+        <div class="flex flex-wrap gap-4 mb-16 pb-8 border-b border-surface-variant reveal">
+            <button class="filter-btn active bg-primary text-on-primary font-label-bold text-label-bold py-2 px-6 rounded-DEFAULT border border-primary transition-all" data-filter="all">All Projects</button>
+            <button class="filter-btn bg-surface-container-lowest text-on-surface font-label-bold text-label-bold py-2 px-6 rounded-DEFAULT border border-outline-variant hover:border-primary hover:text-primary transition-all" data-filter="commercial">Commercial</button>
+            <button class="filter-btn bg-surface-container-lowest text-on-surface font-label-bold text-label-bold py-2 px-6 rounded-DEFAULT border border-outline-variant hover:border-primary hover:text-primary transition-all" data-filter="industrial">Industrial</button>
+            <button class="filter-btn bg-surface-container-lowest text-on-surface font-label-bold text-label-bold py-2 px-6 rounded-DEFAULT border border-outline-variant hover:border-primary hover:text-primary transition-all" data-filter="residential">Residential</button>
+        </div>
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="projects-grid">
+            <!-- Card 1: Industrial -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-1 card-3d" data-category="industrial">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUTfskOp9O7NOMBIot5Nt_ZrB6iSkr1LfnJhdbrrqyN2gnSyQGZLBhzMOA9XgCBC9jr1bPnKjXKjKokRk9kEXhqLjFjZpUj62h4qDxKTK78dbgjnqs-mUAJnUP7Xzfk3TxGSIwR57SmG6MaCehZ03NBPDpofrBQZSOI72Xk-djORBKAoUDNHWP_b9olaJsDq5KopZ4Ayt7CYx7rjgF3SHXQgqb5AAys5xWvJBbWY0pru4uQMJfVz33mWJfGMvBWdfsCbFQUpmyzA0"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Industrial</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Apex Logistics Hub</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        Construction of a 500,000 sq ft automated distribution center featuring reinforced flooring, high-bay structural steel, and advanced climate control systems designed for heavy mechanical loads.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+            <!-- Card 2: Commercial -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-2 card-3d" data-category="commercial">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkvGAq0x0w2W6H8g4oJOpRATiUX3-O2MixkoY6Y4ky6Zlt9m4HKkJhEUlcgdS1MSasXjng1V4DRB8Ela6BZy5U_WQu4TMGwncDeYI4Ima_kD477jtDYPBl0j2-iPQOfIZcpc0clcG72nO8qtOI1G8SW7eE2w-LRhYRKqjR-2d-kUnwY535-z68UXyMRzc5-a34_BezvFRMYE0oDPi7RsCr1YKcVe3A8pUxfIyVIVeeg9gVg1Vmz0CVgG-vPA12pCiHf4lscV9dDAA"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Commercial</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Centurion Corporate Tower</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        A 24-story Class A office building featuring a high-performance curtain wall system, post-tensioned concrete core, and LEED Platinum certification standards.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+            <!-- Card 3: Residential -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-3 card-3d" data-category="residential">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACym-JlvAxKWsfCtFRQPoZ5g2biqyPH4wGzSmfyv9eRhQDF7LvJEKwFhboxqhL696hPq5_DSkj_qmuZOJg6Nqj5OfQVzkgK6okKDAmviv_k_LUe5tPmEgwzBR_wfiCFgpv7MtDWRzZqi-nhkZ7m6asBpX2oprac7C271iPn0mbsiw-9s3B-_rEgzlORp9wkG80CyrMN-oucc3XaZLSIQC-ipnGx2pblm99u7eP04UUz50KilqfXUNXjFsonQwN5qEzjUXLUs7NwvQ"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Residential</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Meridian Block Housing</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        High-density urban residential development utilizing modular construction techniques. The project required deep foundation piling and structural sound-dampening engineering.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+            <!-- Card 4: Industrial -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-4 card-3d" data-category="industrial">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <!-- <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWJ_ywF7-Qb_ygkGzkmnBtTHXciepo5iZpclNlHdihd1XB0FxqDAgZSOKhioNew6elFGZT2vJe0zaMjXiZ1AKOPUn1bjgu8zKc8QN-Rzr7pzz6joP7b4i5lgknoNbjZQV-KWBCiE67e8SwBwin1E_LOEBmsG2fMnXBO98C_GT9eEsdVG6vh6SBGU_MuBHBrgw5VEre2jJvCwdmu9Fi2GG9-90-1cjYvLlGrbKrPWQcOCEuYvm8xq6z_7DZxLnKJ9gndAbMzbrlWtigXfr0yP54Vp8o47RmvjfG8K6bySCwqPARnNq-9w"/> -->
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" src="https://c8.alamy.com/comp/M50MNR/ahlen-water-tower-industrial-monument-city-ahlen-germany-M50MNR.jpg"/>
+ 
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Industrial</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">City Water Treatment Plant</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        Comprehensive overhaul of municipal infrastructure, requiring precision pipe-fitting, massive concrete reservoirs, and non-stop operational phasing to maintain city services.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+        </div>
+        <!-- Pagination / Load More -->
+        <div class="mt-16 text-center reveal">
+            <button class="inline-flex items-center gap-2 bg-surface-container-lowest text-on-surface font-label-bold text-label-bold py-3 px-8 rounded-DEFAULT border-2 border-primary hover:bg-primary hover:text-on-primary transition-all shadow-[4px_4px_0px_0px_rgba(162,58,0,0.2)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] btn-shine">
+                <span class="material-symbols-outlined">add</span>
+                Load More Projects
+            </button>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-inverse-surface dark:bg-surface-container-lowest text-primary-fixed dark:text-primary w-full bottom-0 border-t-4 border-primary">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-padding w-full max-w-full mx-auto">
+        <div class="flex flex-col gap-4">
+            <span class="text-headline-md font-headline-md text-on-primary-container font-extrabold tracking-tight">NR Construction</span>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 mt-4">Built for Industrial Excellence. Delivering quality construction and honest service since day one.</p>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h4 class="text-headline-sm font-headline-md text-on-secondary mb-2">Quick Links</h4>
+            <a class="text-body-md font-body-md text-surface-variant opacity-80 hover:text-primary-fixed-dim underline transition-all" href="about.html">About Us</a>
+            <a class="text-body-md font-body-md text-surface-variant opacity-80 hover:text-primary-fixed-dim underline transition-all" href="services.html">Our Services</a>
+            <a class="text-body-md font-body-md text-surface-variant opacity-80 hover:text-primary-fixed-dim underline transition-all" href="projects.html">Projects</a>
+            <a class="text-body-md font-body-md text-surface-variant opacity-80 hover:text-primary-fixed-dim underline transition-all" href="contact.html">Contact Us</a>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h4 class="text-headline-sm font-headline-md text-on-secondary mb-2">Contact Us</h4>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">location_on</span> SHOP NO 8, SHIV SHAKTI MARKET, ANADRA CIRCLE, Sirohi, Rajasthan 307001</p>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">call</span> 077918 11181</p>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">mail</span> info@nrconstruction.com</p>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h4 class="text-headline-sm font-headline-md text-on-secondary mb-2">Newsletter</h4>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 mb-2">Subscribe to our newsletter for latest updates.</p>
+            <div class="flex w-full">
+                <input class="w-full bg-surface-container text-on-surface px-4 py-3 border border-outline focus:border-primary focus:ring-2 focus:ring-primary rounded-l outline-none font-body-md text-body-md transition-all" placeholder="Your Email" type="email"/>
+                <button class="bg-primary hover:bg-primary-container text-on-primary px-4 py-3 rounded-r transition-colors"><span class="material-symbols-outlined">send</span></button>
+            </div>
+        </div>
+    </div>
+    <div class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline/20 px-margin-mobile md:px-margin-desktop py-6 text-center">
+        <p class="text-body-md font-body-md text-surface-variant opacity-60"> 2024 NR Construction. All Rights Reserved. Built for Industrial Excellence.</p>
+    </div>
+</footer>
+
+<script>
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+    }, 800);
+});
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => {
+    observer.observe(el);
+});
+
+// Filter functionality
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filter = btn.getAttribute('data-filter');
+        document.querySelectorAll('.project-item').forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                item.classList.remove('hidden');
+                item.style.position = 'relative';
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    });
+});
+
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.pageYOffset > 50) {
+        navbar.classList.add('shadow-lg');
+    } else {
+        navbar.classList.remove('shadow-lg');
+    }
+});
+
+document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+    menu.classList.toggle('hidden');
+    icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+});
+</script>
+</body>
+</html>
