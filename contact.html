@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us - NR Construction & Consultancy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&amp;family=Work+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            "colors": {
+                "tertiary-fixed-dim": "#c7c6c6",
+                "surface-container": "#eeeeee",
+                "secondary-fixed-dim": "#c8c6c5",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-highest": "#e2e2e2",
+                "on-secondary": "#ffffff",
+                "primary-fixed": "#ffdbce",
+                "surface-tint": "#a63c00",
+                "primary": "#a23a00",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed": "#1b1c1c",
+                "on-primary-container": "#fffbff",
+                "primary-fixed-dim": "#ffb598",
+                "surface-container-low": "#f3f3f3",
+                "on-error-container": "#93000a",
+                "tertiary-container": "#747474",
+                "tertiary": "#5c5c5c",
+                "on-tertiary-fixed-variant": "#464747",
+                "on-surface-variant": "#5a4137",
+                "surface-dim": "#dadada",
+                "on-secondary-fixed-variant": "#474746",
+                "inverse-on-surface": "#f1f1f1",
+                "on-surface": "#1a1c1c",
+                "on-primary-fixed-variant": "#7e2c00",
+                "on-tertiary": "#ffffff",
+                "on-primary-fixed": "#370e00",
+                "on-primary": "#ffffff",
+                "inverse-primary": "#ffb598",
+                "primary-container": "#ca4b00",
+                "on-secondary-container": "#636262",
+                "inverse-surface": "#2f3131",
+                "secondary-container": "#e2dfde",
+                "secondary": "#5f5e5e",
+                "on-tertiary-container": "#fefcfc",
+                "secondary-fixed": "#e5e2e1",
+                "surface": "#f9f9f9",
+                "surface-bright": "#f9f9f9",
+                "outline-variant": "#e3bfb2",
+                "on-background": "#1a1c1c",
+                "error-container": "#ffdad6",
+                "background": "#f9f9f9",
+                "surface-variant": "#e2e2e2",
+                "outline": "#8e7165",
+                "on-secondary-fixed": "#1c1b1b",
+                "surface-container-high": "#e8e8e8",
+                "on-error": "#ffffff",
+                "tertiary-fixed": "#e4e2e2"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "section-padding": "120px",
+                "margin-desktop": "80px",
+                "gutter": "32px",
+                "margin-mobile": "20px",
+                "base-unit": "8px"
+            },
+            "fontFamily": {
+                "headline-md": ["Sora"],
+                "headline-lg": ["Sora"],
+                "headline-display": ["Sora"],
+                "label-bold": ["Work Sans"],
+                "body-lg": ["Work Sans"],
+                "headline-lg-mobile": ["Sora"],
+                "body-md": ["Work Sans"]
+            },
+            "fontSize": {
+                "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                "headline-display": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                "label-bold": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+            },
+            animation: {
+                'float': 'float 6s ease-in-out infinite',
+                'shimmer': 'shimmer 2s linear infinite',
+                'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+                float: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-20px)' },
+                },
+                shimmer: {
+                    '0%': { backgroundPosition: '-200% 0' },
+                    '100%': { backgroundPosition: '200% 0' },
+                },
+            },
+        }
+    }
+}
+</script>
+<style>
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.clip-angular-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+}
+@media (min-width: 768px) {
+    .clip-angular-bottom {
+        clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+    }
+}
+
+/* Scroll Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+.reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* Card 3D hover */
+.card-3d {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-3d:hover {
+    transform: translateY(-8px) rotateX(2deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Button shine */
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+.btn-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+.btn-shine:hover::before {
+    left: 100%;
+}
+
+/* Animated underline */
+.animated-underline {
+    position: relative;
+}
+.animated-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #a23a00;
+    transition: width 0.3s ease;
+}
+.animated-underline:hover::after {
+    width: 100%;
+}
+
+/* Form input focus animation */
+.form-input {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+.form-input:focus {
+    border-color: #a23a00;
+    box-shadow: 0 0 0 4px rgba(162, 58, 0, 0.1);
+}
+
+/* Loader */
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #2f3131;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+.loader-bar {
+    width: 200px;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+.loader-bar::after {
+    content: '';
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: #a23a00;
+    border-radius: 2px;
+    animation: loading 1s ease-in-out infinite;
+}
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(350%); }
+}
+
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f9f9f9; }
+::-webkit-scrollbar-thumb { background: #a23a00; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #ca4b00; }
+
+/* Contact card hover */
+.contact-card {
+    transition: all 0.3s ease;
+}
+.contact-card:hover {
+    transform: translateX(8px);
+}
+.contact-card:hover .contact-icon {
+    background: #a23a00;
+    color: #ffffff;
+    transform: scale(1.1) rotate(5deg);
+}
+.contact-icon {
+    transition: all 0.3s ease;
+}
+
+/* Social button hover */
+.social-btn {
+    transition: all 0.3s ease;
+}
+.social-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(162, 58, 0, 0.2);
+}
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased flex flex-col min-h-screen">
+<!-- Loading Screen -->
+<div class="loader" id="loader">
+    <div class="flex flex-col items-center gap-4">
+        <span class="material-symbols-outlined text-primary text-5xl fill-icon animate-pulse">domain</span>
+        <div class="loader-bar"></div>
+    </div>
+</div>
+
+<!-- TopNavBar -->
+<nav class="bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-lg w-full z-50 border-b border-outline-variant/50 dark:border-outline transition-all duration-300" id="navbar">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-full mx-auto">
+    <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-[32px] fill-icon">domain</span>
+        <div class="flex flex-col leading-tight">
+            <span class="text-[22px] font-headline-md font-extrabold text-on-surface dark:text-inverse-on-surface tracking-tighter">NR CONSTRUCTION</span>
+            <span class="text-[14px] font-label-bold text-primary uppercase tracking-[0.12em]">&amp; CONSULTANCY</span>
+        </div>
+    </div>
+    <div class="hidden md:flex items-center gap-gutter">
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors duration-300 animated-underline" href="index.html">Home</a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors duration-300 animated-underline" href="about.html">About</a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors duration-300 animated-underline" href="services.html">Services</a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors duration-300 animated-underline" href="projects.html">Projects</a>
+    </div>
+    <div class="hidden md:flex items-center gap-4">
+        <button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container">
+            <span class="material-symbols-outlined">search</span>
+        </button>
+        <a href="contact.html" class="bg-primary hover:bg-primary-container text-on-primary font-label-bold text-label-bold px-6 py-3 rounded uppercase tracking-wider transition-all duration-300 shadow-[0_4px_0_0_#7e2c00] hover:shadow-[0_2px_0_0_#7e2c00] hover:translate-y-[2px] inline-block btn-shine">
+            Get in Touch
+        </a>
+    </div>
+    <button class="md:hidden text-on-surface-variant p-2" id="mobile-menu-btn">
+        <span class="material-symbols-outlined" id="menu-icon">menu</span>
+    </button>
+</div>
+<div class="md:hidden hidden bg-surface border-t border-outline-variant" id="mobile-menu">
+    <div class="flex flex-col p-6 gap-4">
+        <a class="text-on-surface-variant text-label-bold font-label-bold py-2 border-b border-outline-variant/30" href="index.html">Home</a>
+        <a class="text-on-surface-variant text-label-bold font-label-bold py-2 border-b border-outline-variant/30" href="about.html">About</a>
+        <a class="text-on-surface-variant text-label-bold font-label-bold py-2 border-b border-outline-variant/30" href="services.html">Services</a>
+        <a class="text-on-surface-variant text-label-bold font-label-bold py-2" href="projects.html">Projects</a>
+        <a href="contact.html" class="bg-primary text-on-primary font-label-bold text-label-bold px-6 py-3 rounded uppercase tracking-wider text-center mt-4">Get in Touch</a>
+    </div>
+</div>
+</nav>
+
+<!-- Main Content -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative bg-inverse-surface clip-angular-bottom pb-32 overflow-hidden">
+    <div class="absolute inset-0 opacity-40 parallax-bg" id="hero-parallax">
+        <img alt="Industrial Site" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRbS5FqkYv-P7wk5ISxLeZNB1JGhh4V1bJqYtmUsqaFE6FzV45zZWkf2Yp4qRJRetgoimSNeqAm-c-iClU6dkN1wjfpKy4KVk0vS09M2-oOPaNbwnvoZZAFZ2Gdn9G3_SQkhTJzJZO1q3DPfTOce-6kcr0qshL1IR4W6MQ6-pqJ23XkGYzDCZ_WL23rtPHkJjDFnYQ94uc0-esC21nPPVtupMod08GuQJu7-3Bv4BghsbZ_9mCOJd489UGbf6WS_sTGt9_IkgrDjY"/>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-inverse-surface/50 to-inverse-surface/80"></div>
+    <!-- Animated geometric shapes -->
+    <div class="absolute top-1/4 right-1/4 w-48 h-48 border border-primary/20 rounded-full animate-float opacity-30"></div>
+    <div class="absolute bottom-1/3 right-1/3 w-32 h-32 border border-primary-fixed/10 rotate-45 animate-float opacity-20" style="animation-delay: 2s;"></div>
+    
+    <div class="relative z-10 px-margin-mobile md:px-margin-desktop pt-32 pb-24 text-center">
+        <div class="flex items-center justify-center gap-4 mb-6 reveal">
+            <div class="h-1 w-12 bg-primary relative overflow-hidden">
+                <div class="absolute inset-0 animate-shimmer" style="background: linear-gradient(90deg, transparent, #ffb598, transparent); background-size: 200% 100%;"></div>
+            </div>
+            <span class="text-primary-fixed uppercase tracking-widest text-label-bold font-label-bold">Get In Touch</span>
+            <div class="h-1 w-12 bg-primary relative overflow-hidden">
+                <div class="absolute inset-0 animate-shimmer" style="background: linear-gradient(90deg, transparent, #ffb598, transparent); background-size: 200% 100%;"></div>
+            </div>
+        </div>
+        <h1 class="font-headline-display text-headline-lg-mobile md:text-headline-display text-surface mb-6 uppercase tracking-tight reveal stagger-1">Initiate Contact</h1>
+        <p class="font-body-lg text-body-lg text-surface-container-highest max-w-2xl mx-auto reveal stagger-2">
+            Engage with our project management team to discuss structural specifications, procurement timelines, and industrial development opportunities.
+        </p>
+        <div class="w-16 h-1 bg-primary mx-auto mt-8 relative overflow-hidden reveal stagger-3">
+            <div class="absolute inset-0 animate-shimmer" style="background: linear-gradient(90deg, transparent, #ffb598, transparent); background-size: 200% 100%;"></div>
+        </div>
+    </div>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-60">
+        <span class="text-surface-variant text-xs uppercase tracking-widest">Scroll</span>
+        <span class="material-symbols-outlined text-surface-variant">expand_more</span>
+    </div>
+</section>
+
+<!-- Contact Framework Layout -->
+<section class="px-margin-mobile md:px-margin-desktop -mt-20 relative z-20 pb-section-padding">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+        <!-- Contact Form (Left 7 cols) -->
+        <div class="md:col-span-7 reveal-left">
+            <div class="bg-surface-container-lowest border border-outline-variant p-8 md:p-12 shadow-[8px_8px_0_0_#e2dfde] card-3d">
+                <div class="flex items-center gap-3 mb-8">
+                    <span class="material-symbols-outlined text-primary text-[24px]">drafts</span>
+                    <h2 class="font-headline-md text-headline-md text-on-surface">Direct Inquiry</h2>
+                </div>
+                <form class="space-y-6" id="contact-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex flex-col">
+                            <label class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-2">Full Name</label>
+                            <input class="w-full bg-surface-container-lowest border-2 border-outline-variant rounded-none px-4 py-3 font-body-md text-body-md text-on-surface focus:border-primary focus:outline-none form-input" placeholder="Enter your name" type="text" required/>
+                        </div>
+                        <div class="flex flex-col">
+                            <label class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-2">Corporate Email</label>
+                            <input class="w-full bg-surface-container-lowest border-2 border-outline-variant rounded-none px-4 py-3 font-body-md text-body-md text-on-surface focus:border-primary focus:outline-none form-input" placeholder="name@company.com" type="email" required/>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-2">Project Subject</label>
+                        <input class="w-full bg-surface-container-lowest border-2 border-outline-variant rounded-none px-4 py-3 font-body-md text-body-md text-on-surface focus:border-primary focus:outline-none form-input" placeholder="Nature of inquiry" type="text"/>
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="font-label-bold text-label-bold uppercase text-on-surface-variant mb-2">Detailed Message</label>
+                        <textarea class="w-full bg-surface-container-lowest border-2 border-outline-variant rounded-none px-4 py-3 font-body-md text-body-md text-on-surface focus:border-primary focus:outline-none form-input resize-none" placeholder="Provide project specifications or questions..." rows="5"></textarea>
+                    </div>
+                    <button class="w-full md:w-auto bg-primary text-on-primary font-label-bold text-label-bold uppercase tracking-wider px-8 py-4 rounded-lg border-b-4 border-on-primary-fixed-variant hover:bg-on-primary-fixed-variant active:border-b-0 active:translate-y-[4px] transition-all flex justify-center items-center gap-2 btn-shine" type="submit">
+                        Transmit Protocol <span class="material-symbols-outlined text-[20px]">send</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <!-- Contact Info (Right 5 cols) -->
+        <div class="md:col-span-5 flex flex-col gap-8 mt-12 md:mt-0">
+            <!-- Contact Data Card -->
+            <div class="bg-surface border border-outline-variant p-8 relative overflow-hidden reveal-right card-3d">
+                <!-- Decorative background element -->
+                <div class="absolute -right-12 -top-12 opacity-5 pointer-events-none animate-pulse-slow">
+                    <span class="material-symbols-outlined text-[200px]">factory</span>
+                </div>
+                <h3 class="font-headline-md text-headline-md text-on-surface mb-8 border-b-2 border-primary inline-block pb-1">Operational HQ</h3>
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4 contact-card">
+                        <div class="contact-icon bg-primary-container p-3 rounded-lg mt-1">
+                            <span class="material-symbols-outlined text-primary text-[24px]">location_on</span>
+                        </div>
+                        <div>
+                            <p class="font-label-bold text-label-bold text-on-surface-variant uppercase mb-1">Corporate Address</p>
+                            <p class="font-body-md text-body-md text-on-surface">SHOP NO 8, SHIV SHAKTI MARKET<br/>ANADRA CIRCLE, Vedhaynath Colony<br/>Sirohi, Rajasthan 307001</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 contact-card">
+                        <div class="contact-icon bg-primary-container p-3 rounded-lg mt-1">
+                            <span class="material-symbols-outlined text-primary text-[24px]">call</span>
+                        </div>
+                        <div>
+                            <p class="font-label-bold text-label-bold text-on-surface-variant uppercase mb-1">Direct Line</p>
+                            <p class="font-body-md text-body-md text-on-surface font-bold">077918 11181</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 contact-card">
+                        <div class="contact-icon bg-primary-container p-3 rounded-lg mt-1">
+                            <span class="material-symbols-outlined text-primary text-[24px]">schedule</span>
+                        </div>
+                        <div>
+                            <p class="font-label-bold text-label-bold text-on-surface-variant uppercase mb-1">Business Hours</p>
+                            <p class="font-body-md text-body-md text-on-surface font-bold">Open · Closes 8 PM</p>
+                            <a class="font-body-md text-body-md text-primary underline text-sm" href="#">More hours</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 contact-card">
+                        <div class="contact-icon bg-primary-container p-3 rounded-lg mt-1">
+                            <span class="material-symbols-outlined text-primary text-[24px]">mail</span>
+                        </div>
+                        <div>
+                            <p class="font-label-bold text-label-bold text-on-surface-variant uppercase mb-1">Electronic Mail</p>
+                            <p class="font-body-md text-body-md text-on-surface font-bold text-primary">nrconstruction008@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Social Links -->
+                <div class="mt-10 pt-8 border-t border-outline-variant">
+                    <p class="font-label-bold text-label-bold text-on-surface-variant uppercase mb-4">Network Connectivity</p>
+                    <div class="flex gap-4">
+                        <a class="social-btn w-12 h-12 bg-surface-container-high border border-outline-variant rounded-lg flex items-center justify-center hover:bg-primary hover:text-on-primary hover:border-primary text-on-surface" href="#">
+                            <span class="material-symbols-outlined">share</span>
+                        </a>
+                        <a class="social-btn w-12 h-12 bg-surface-container-high border border-outline-variant rounded-lg flex items-center justify-center hover:bg-primary hover:text-on-primary hover:border-primary text-on-surface" href="#">
+                            <span class="material-symbols-outlined">public</span>
+                        </a>
+                        <a class="social-btn w-12 h-12 bg-surface-container-high border border-outline-variant rounded-lg flex items-center justify-center hover:bg-primary hover:text-on-primary hover:border-primary text-on-surface" href="#">
+                            <span class="material-symbols-outlined">work</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Map Blueprint Component -->
+            <div class="bg-surface-container-lowest border border-outline-variant p-2 h-64 shadow-[4px_4px_0_0_#e2dfde] reveal-right stagger-2 card-3d overflow-hidden group">
+                <img alt="Map Location" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALEc8gbtR98U30tNp83BqR5g8OMy13tAp2H1G3d2WwX136qqtYwT9_2bdjw30KqGPUjTMUIrGYJlSbFmzNdTYVvWVIOccv1FjYuLAs-vkcDu8lDURjYVdcSmgUWMPFdKfC75kdyE7VFuzWkaWcWerHh6ji25yGOlBEUsf6feA6VUBVZv0UCqKukthJ9w9FUlTtSZjObJjgKaMHaVb5YMbDSwuwMcqFDrCE5d59Gfv94rDk9YnkWKzOuubBvDERjq1VEvmKVXOLlvU"/>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-inverse-surface dark:bg-surface-container-lowest text-primary-fixed dark:text-primary w-full bottom-0 border-t-4 border-primary">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-padding w-full max-w-full mx-auto">
+        <div class="flex flex-col gap-4">
+            <span class="text-headline-md font-headline-md text-on-primary-container font-extrabold tracking-tight">NR Construction &amp; Consultancy</span>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 mt-4">Built for Industrial Excellence. Delivering quality construction and honest service since day one.</p>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h4 class="text-headline-sm font-headline-md text-on-secondary mb-2">Quick Links</h4>
+            <a class="text-body-md font-body-md text-surface-variant opacity-80 hover:text-primary-fixed-dim underline transition-all" href="about.html">About Us</a>
+            <a class="text-body-md font-body-md text-surface-variant opacity-80 hover:text-primary-fixed-dim underline transition-all" href="services.html">Our Services</a>
+            <a class="text-body-md font-body-md text-surface-variant opacity-80 hover:text-primary-fixed-dim underline transition-all" href="projects.html">Projects</a>
+            <a class="text-body-md font-body-md text-surface-variant opacity-80 hover:text-primary-fixed-dim underline transition-all" href="contact.html">Contact Us</a>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h4 class="text-headline-sm font-headline-md text-on-secondary mb-2">Contact Us</h4>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">location_on</span> SHOP NO 8, SHIV SHAKTI MARKET, ANADRA CIRCLE, Sirohi, Rajasthan 307001</p>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">call</span> 077918 11181</p>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">mail</span> nrconstruction008@gmail.com</p>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h4 class="text-headline-sm font-headline-md text-on-secondary mb-2">Newsletter</h4>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 mb-2">Subscribe to our newsletter for latest updates.</p>
+            <div class="flex w-full">
+                <input class="w-full bg-surface-container text-on-surface px-4 py-3 border border-outline focus:border-primary focus:ring-2 focus:ring-primary rounded-l outline-none font-body-md text-body-md transition-all" placeholder="Your Email" type="email"/>
+                <button class="bg-primary hover:bg-primary-container text-on-primary px-4 py-3 rounded-r transition-colors"><span class="material-symbols-outlined">send</span></button>
+            </div>
+        </div>
+    </div>
+    <div class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline/20 px-margin-mobile md:px-margin-desktop py-6 text-center">
+        <p class="text-body-md font-body-md text-surface-variant opacity-60"> 2024 NR Construction &amp; Consultancy. All Rights Reserved. Built for Industrial Excellence.</p>
+    </div>
+</footer>
+
+<script>
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+    }, 800);
+});
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+    observer.observe(el);
+});
+
+window.addEventListener('scroll', () => {
+    const parallax = document.getElementById('hero-parallax');
+    if (parallax) {
+        const scrolled = window.pageYOffset;
+        parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
+    }
+    const navbar = document.getElementById('navbar');
+    if (window.pageYOffset > 50) {
+        navbar.classList.add('shadow-lg');
+    } else {
+        navbar.classList.remove('shadow-lg');
+    }
+});
+
+document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+    menu.classList.toggle('hidden');
+    icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+});
+
+// Form submission
+document.getElementById('contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Sending...';
+    btn.disabled = true;
+    
+    setTimeout(() => {
+        btn.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Message Sent!';
+        btn.classList.remove('bg-primary');
+        btn.classList.add('bg-green-600');
+        
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            btn.classList.remove('bg-green-600');
+            btn.classList.add('bg-primary');
+            e.target.reset();
+        }, 2000);
+    }, 1500);
+});
+</script>
+<script src="chatbot.js"></script>
+</body>
+</html>
