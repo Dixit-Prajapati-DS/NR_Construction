@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NR Construction & Consultancy - Projects</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&amp;family=Work+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            "colors": {
+                "tertiary-fixed-dim": "#c7c6c6",
+                "surface-container": "#eeeeee",
+                "secondary-fixed-dim": "#c8c6c5",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-highest": "#e2e2e2",
+                "on-secondary": "#ffffff",
+                "primary-fixed": "#ffdbce",
+                "surface-tint": "#a63c00",
+                "primary": "#a23a00",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed": "#1b1c1c",
+                "on-primary-container": "#fffbff",
+                "primary-fixed-dim": "#ffb598",
+                "surface-container-low": "#f3f3f3",
+                "on-error-container": "#93000a",
+                "tertiary-container": "#747474",
+                "tertiary": "#5c5c5c",
+                "on-tertiary-fixed-variant": "#464747",
+                "on-surface-variant": "#5a4137",
+                "surface-dim": "#dadada",
+                "on-secondary-fixed-variant": "#474746",
+                "inverse-on-surface": "#f1f1f1",
+                "on-surface": "#1a1c1c",
+                "on-primary-fixed-variant": "#7e2c00",
+                "on-tertiary": "#ffffff",
+                "on-primary-fixed": "#370e00",
+                "on-primary": "#ffffff",
+                "inverse-primary": "#ffb598",
+                "primary-container": "#ca4b00",
+                "on-secondary-container": "#636262",
+                "inverse-surface": "#2f3131",
+                "secondary-container": "#e2dfde",
+                "secondary": "#5f5e5e",
+                "on-tertiary-container": "#fefcfc",
+                "secondary-fixed": "#e5e2e1",
+                "surface": "#f9f9f9",
+                "surface-bright": "#f9f9f9",
+                "outline-variant": "#e3bfb2",
+                "on-background": "#1a1c1c",
+                "error-container": "#ffdad6",
+                "background": "#f9f9f9",
+                "surface-variant": "#e2e2e2",
+                "outline": "#8e7165",
+                "on-secondary-fixed": "#1c1b1b",
+                "surface-container-high": "#e8e8e8",
+                "on-error": "#ffffff",
+                "tertiary-fixed": "#e4e2e2"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "section-padding": "120px",
+                "margin-desktop": "80px",
+                "gutter": "32px",
+                "margin-mobile": "20px",
+                "base-unit": "8px"
+            },
+            "fontFamily": {
+                "headline-md": ["Sora"],
+                "headline-lg": ["Sora"],
+                "headline-display": ["Sora"],
+                "label-bold": ["Work Sans"],
+                "body-lg": ["Work Sans"],
+                "headline-lg-mobile": ["Sora"],
+                "body-md": ["Work Sans"]
+            },
+            "fontSize": {
+                "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                "headline-display": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                "label-bold": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+            },
+            animation: {
+                'float': 'float 6s ease-in-out infinite',
+                'shimmer': 'shimmer 2s linear infinite',
+                'fade-in': 'fadeIn 0.8s ease-out forwards',
+                'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            },
+            keyframes: {
+                float: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-20px)' },
+                },
+                shimmer: {
+                    '0%': { backgroundPosition: '-200% 0' },
+                    '100%': { backgroundPosition: '200% 0' },
+                },
+                fadeIn: {
+                    '0%': { opacity: '0' },
+                    '100%': { opacity: '1' },
+                },
+                fadeInUp: {
+                    '0%': { opacity: '0', transform: 'translateY(40px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+            },
+        }
+    }
+}
+</script>
+<style>
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.material-symbols-outlined.fill {
+    font-variation-settings: 'FILL' 1;
+}
+
+.diagonal-mask {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+/* Scroll Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+
+/* Card 3D hover */
+.card-3d {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-3d:hover {
+    transform: translateY(-8px) rotateX(2deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Button shine */
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+.btn-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+.btn-shine:hover::before {
+    left: 100%;
+}
+
+/* Animated underline */
+.animated-underline {
+    position: relative;
+}
+.animated-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #a23a00;
+    transition: width 0.3s ease;
+}
+.animated-underline:hover::after {
+    width: 100%;
+}
+
+/* Glass morphism */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Gradient text */
+.gradient-text {
+    background: linear-gradient(135deg, #a23a00 0%, #ffb598 50%, #a23a00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Geo pattern */
+.geo-pattern {
+    background-image: 
+        linear-gradient(30deg, rgba(162, 58, 0, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(162, 58, 0, 0.03) 87.5%, rgba(162, 58, 0, 0.03)),
+        linear-gradient(150deg, rgba(162, 58, 0, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(162, 58, 0, 0.03) 87.5%, rgba(162, 58, 0, 0.03)),
+        linear-gradient(30deg, rgba(162, 58, 0, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(162, 58, 0, 0.03) 87.5%, rgba(162, 58, 0, 0.03)),
+        linear-gradient(150deg, rgba(162, 58, 0, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(162, 58, 0, 0.03) 87.5%, rgba(162, 58, 0, 0.03));
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+}
+
+/* Loader */
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #2f3131;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+.loader-bar {
+    width: 200px;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+.loader-bar::after {
+    content: '';
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: #a23a00;
+    border-radius: 2px;
+    animation: loading 1s ease-in-out infinite;
+}
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(350%); }
+}
+
+html { scroll-behavior: smooth; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f9f9f9; }
+::-webkit-scrollbar-thumb { background: #a23a00; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #ca4b00; }
+
+/* Filter button active state */
+.filter-btn.active {
+    background: #a23a00;
+    color: #ffffff;
+    border-color: #a23a00;
+}
+
+/* Project card overlay */
+.project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(47, 49, 49, 0.9) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+/* Fade transition for filtered items */
+.project-item {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.project-item.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+    position: absolute;
+}
+
+/* Card image zoom */
+.img-zoom {
+    transition: transform 0.7s ease-in-out;
+}
+.group:hover .img-zoom {
+    transform: scale(1.1);
+}
+</style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary selection:text-on-primary">
+<!-- Loading Screen -->
+<div class="loader" id="loader">
+    <div class="flex flex-col items-center gap-4">
+        <span class="material-symbols-outlined text-primary text-5xl fill animate-pulse">domain</span>
+        <div class="loader-bar"></div>
+    </div>
+</div>
+
+<!-- TopNavBar -->
+<nav class="bg-surface/90 dark:bg-inverse-surface/90 backdrop-blur-lg w-full z-50 border-b border-outline-variant/50 dark:border-outline transition-all duration-300" id="navbar">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-full mx-auto">
+    <div class="flex items-center gap-3 animate-fade-in">
+        <span class="material-symbols-outlined text-primary text-[32px] fill">domain</span>
+        <div class="flex flex-col leading-tight">
+            <span class="text-[20px] font-headline-md font-extrabold text-on-surface dark:text-inverse-on-surface tracking-tight">NR CONSTRUCTION</span>
+            <span class="text-[17px] font-headline-md font-extrabold text-on-surface dark:text-inverse-on-surface tracking-[0.08em]">&amp; CONSULTANCY</span>
+        </div>
+    </div>
+    <div class="hidden md:flex items-center gap-gutter">
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors duration-300 animated-underline" href="index.html">Home</a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors duration-300 animated-underline" href="about.html">About</a>
+        <a class="text-on-surface-variant dark:text-surface-variant font-label-bold text-label-bold hover:text-primary transition-colors duration-300 animated-underline" href="services.html">Services</a>
+        <a class="text-primary dark:text-inverse-primary border-b-2 border-primary pb-1 text-label-bold font-label-bold hover:text-primary transition-colors duration-300 animated-underline" href="projects.html">Projects</a>
+    </div>
+    <div class="hidden md:flex items-center gap-4">
+        <button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container">
+            <span class="material-symbols-outlined">search</span>
+        </button>
+        <a href="contact.html" class="bg-primary hover:bg-primary-container text-on-primary font-label-bold text-label-bold px-6 py-3 rounded uppercase tracking-wider transition-all duration-300 shadow-[0_4px_0_0_#7e2c00] hover:shadow-[0_2px_0_0_#7e2c00] hover:translate-y-[2px] inline-block btn-shine">
+            Get in Touch
+        </a>
+    </div>
+    <button class="md:hidden text-on-surface-variant p-2" id="mobile-menu-btn">
+        <span class="material-symbols-outlined" id="menu-icon">menu</span>
+    </button>
+</div>
+<div class="md:hidden hidden bg-surface border-t border-outline-variant" id="mobile-menu">
+    <div class="flex flex-col p-6 gap-4">
+        <a class="text-on-surface-variant text-label-bold font-label-bold py-2 border-b border-outline-variant/30" href="index.html">Home</a>
+        <a class="text-on-surface-variant text-label-bold font-label-bold py-2 border-b border-outline-variant/30" href="about.html">About</a>
+        <a class="text-on-surface-variant text-label-bold font-label-bold py-2 border-b border-outline-variant/30" href="services.html">Services</a>
+        <a class="text-primary text-label-bold font-label-bold py-2" href="projects.html">Projects</a>
+        <a href="contact.html" class="bg-primary text-on-primary font-label-bold text-label-bold px-6 py-3 rounded uppercase tracking-wider text-center mt-4">Get in Touch</a>
+    </div>
+</div>
+</nav>
+
+<main>
+<!-- Hero Section -->
+<section class="bg-inverse-surface pt-section-padding pb-section-padding diagonal-mask relative px-margin-mobile md:px-margin-desktop overflow-hidden">
+    <!-- Animated geometric shapes -->
+    <div class="absolute top-1/4 right-1/4 w-64 h-64 border border-primary/20 rounded-full animate-float opacity-30"></div>
+    <div class="absolute bottom-1/3 right-1/3 w-40 h-40 border border-primary-fixed/10 rotate-45 animate-float opacity-20" style="animation-delay: 2s;"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+            <div class="md:col-span-8 flex flex-col justify-center">
+                <div class="flex items-center gap-4 mb-6 reveal">
+                    <div class="h-1 w-12 bg-primary relative overflow-hidden">
+                        <div class="absolute inset-0 bg-primary-fixed animate-shimmer" style="background: linear-gradient(90deg, transparent, #ffb598, transparent); background-size: 200% 100%;"></div>
+                    </div>
+                    <span class="text-primary-fixed uppercase tracking-widest text-label-bold font-label-bold">Portfolio</span>
+                </div>
+                <h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-display md:text-headline-display text-on-secondary mb-6 reveal stagger-1">
+                    Building Structural Integrity &amp; Industrial Excellence
+                </h1>
+                <p class="font-body-lg text-body-lg text-surface-variant max-w-2xl reveal stagger-2">
+                    Explore our recent deployments across commercial, industrial, and residential sectors. Every structure is a testament to mechanical precision, unwavering reliability, and materials built to last.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-60">
+        <span class="text-surface-variant text-xs uppercase tracking-widest">Scroll</span>
+        <span class="material-symbols-outlined text-surface-variant">expand_more</span>
+    </div>
+</section>
+
+<!-- Projects Grid Section -->
+<section class="py-section-padding px-margin-mobile md:px-margin-desktop bg-surface relative geo-pattern">
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Filters -->
+        <div class="flex flex-wrap gap-4 mb-16 pb-8 border-b border-surface-variant reveal">
+            <button class="filter-btn active bg-primary text-on-primary font-label-bold text-label-bold py-2 px-6 rounded-DEFAULT border border-primary transition-all" data-filter="all">All Projects</button>
+            <button class="filter-btn bg-surface-container-lowest text-on-surface font-label-bold text-label-bold py-2 px-6 rounded-DEFAULT border border-outline-variant hover:border-primary hover:text-primary transition-all" data-filter="commercial">Commercial</button>
+            <button class="filter-btn bg-surface-container-lowest text-on-surface font-label-bold text-label-bold py-2 px-6 rounded-DEFAULT border border-outline-variant hover:border-primary hover:text-primary transition-all" data-filter="industrial">Industrial</button>
+            <button class="filter-btn bg-surface-container-lowest text-on-surface font-label-bold text-label-bold py-2 px-6 rounded-DEFAULT border border-outline-variant hover:border-primary hover:text-primary transition-all" data-filter="residential">Residential</button>
+        </div>
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="projects-grid">
+            <!-- Card 4: Residential -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-1 card-3d" data-category="residential">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover img-zoom" src="../images/house1.jfif"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Residential</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Modern Luxury Villa</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        A contemporary three-storey luxury residence featuring expansive glass facades, rooftop gardens, spacious balconies, and premium architectural finishes. Designed to maximize natural light, ventilation, and energy efficiency while delivering a sophisticated urban living experience.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 5: Residential -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-2 card-3d" data-category="residential">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover img-zoom" src="../images/house2.jfif"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Residential</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Royal Heritage Residence</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        An elegant luxury residence combining contemporary architecture with timeless design elements. Featuring premium materials, spacious interiors, and refined detailing to deliver a sophisticated living experience.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 6: Residential -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-3 card-3d" data-category="residential">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover img-zoom" src="../images/house3.jfif"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Residential</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Grand Heritage Villa</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        A luxurious neo-classical villa featuring elegant arches, expansive balconies, and premium architectural detailing. Designed to blend timeless aesthetics with modern comfort, creating a sophisticated and distinguished living experience.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 7: Residential -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-4 card-3d" data-category="residential">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover img-zoom" src="../images/house4.jfif"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Residential</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Skyline Terrace Villa</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        A contemporary luxury villa featuring expansive terraces, elegant architectural details, and open living spaces. Designed to maximize natural light, comfort, and modern family living while maintaining a sophisticated visual appeal.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 8: Residential -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-5 card-3d" data-category="residential">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover img-zoom" src="../images/house6.jfif"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Residential</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Modern Living House</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        A contemporary family home featuring clean architectural lines, spacious interiors, and modern exterior finishes. Designed to provide comfort, functionality, and a stylish living experience.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 9: Residential -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-6 card-3d" data-category="residential">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover img-zoom" src="../images/house7.jfif"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Residential</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Elite Residential Design</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        A contemporary villa designed for elegant lifestyle, natural light, and modern living.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 10: Residential -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-1 card-3d" data-category="residential">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover img-zoom" src="../images/house8.jfif"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Residential</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Contemporary Luxury House</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        A stunning modern elevation crafted with clean architectural lines, premium materials, and elegant lighting that creates a sophisticated urban living experience. Designed to combine luxury, functionality, and timeless beauty.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 11: Residential -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-2 card-3d" data-category="residential">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover img-zoom" src="../images/house9.jfif"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Residential</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Smart Luxury Villa</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        A luxury villa featuring modern architecture, spacious outdoor areas, and nature-inspired design. Designed to provide comfort, elegance, and a contemporary living experience.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 12: Interior -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-3 card-3d" data-category="commercial">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover img-zoom" src="../images/interior_house.jfif"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Commercial</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Royal Living Interior</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        A luxury living room featuring premium interiors, elegant detailing, and timeless sophistication.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 1: Industrial -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-1 card-3d" data-category="industrial">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover img-zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUTfskOp9O7NOMBIot5Nt_ZrB6iSkr1LfnJhdbrrqyN2gnSyQGZLBhzMOA9XgCBC9jr1bPnKjXKjKokRk9kEXhqLjFjZpUj62h4qDxKTK78dbgjnqs-mUAJnUP7Xzfk3TxGSIwR57SmG6MaCehZ03NBPDpofrBQZSOI72Xk-djORBKAoUDNHWP_b9olaJsDq5KopZ4Ayt7CYx7rjgF3SHXQgqb5AAys5xWvJBbWY0pru4uQMJfVz33mWJfGMvBWdfsCbFQUpmyzA0"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Industrial</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Apex Logistics Hub</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        Built a large-scale automated warehouse with heavy-duty flooring and tall steel structures. The facility is designed to handle massive mechanical loads with smart climate control keeping everything running smoothly.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 2: Commercial -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-2 card-3d" data-category="commercial">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover img-zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkvGAq0x0w2W6H8g4oJOpRATiUX3-O2MixkoY6Y4ky6Zlt9m4HKkJhEUlcgdS1MSasXjng1V4DRB8Ela6BZy5U_WQu4TMGwncDeYI4Ima_kD477jtDYPBl0j2-iPQOfIZcpc0clcG72nO8qtOI1G8SW7eE2w-LRhYRKqjR-2d-kUnwY535-z68UXyMRzc5-a34_BezvFRMYE0oDPi7RsCr1YKcVe3A8pUxfIyVIVeeg9gVg1Vmz0CVgG-vPA12pCiHf4lscV9dDAA"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Commercial</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Centurion Corporate Tower</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        A 24-storey premium office tower with a modern glass facade and strong concrete core. Designed to meet top environmental standards while offering a sleek, professional workspace.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 3: Residential -->
+            <article class="project-item bg-surface-container-lowest border border-outline-variant flex flex-col group hover:-translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(26,28,28,0.15)] transition-all duration-300 reveal stagger-3 card-3d" data-category="residential">
+                <div class="h-64 bg-surface-dim overflow-hidden border-b border-outline-variant relative">
+                    <img class="w-full h-full object-cover img-zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACym-JlvAxKWsfCtFRQPoZ5g2biqyPH4wGzSmfyv9eRhQDF7LvJEKwFhboxqhL696hPq5_DSkj_qmuZOJg6Nqj5OfQVzkgK6okKDAmviv_k_LUe5tPmEgwzBR_wfiCFgpv7MtDWRzZqi-nhkZ7m6asBpX2oprac7C271iPn0mbsiw-9s3B-_rEgzlORp9wkG80CyrMN-oucc3XaZLSIQC-ipnGx2pblm99u7eP04UUz50KilqfXUNXjFsonQwN5qEzjUXLUs7NwvQ"/>
+                    <div class="project-overlay flex items-end p-6">
+                        <span class="text-primary-fixed font-label-bold uppercase tracking-wider">View Details</span>
+                    </div>
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <span class="font-label-bold text-label-bold text-primary mb-3">Residential</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-4">Meridian Block Housing</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow line-clamp-3">
+                        A modern urban housing complex built using smart modular techniques. Deep foundations and sound-proofing ensure a quiet, stable living environment in a high-density setting.
+                    </p>
+                    <a class="inline-flex items-center justify-between w-full bg-surface-container text-on-surface font-label-bold text-label-bold py-3 px-6 rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-colors border border-outline-variant group-hover:border-primary" href="projects.html">
+                        View Case Study
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <!-- Pagination / Load More -->
+        <div class="mt-16 text-center reveal">
+            <button class="inline-flex items-center gap-2 bg-surface-container-lowest text-on-surface font-label-bold text-label-bold py-3 px-8 rounded-DEFAULT border-2 border-primary hover:bg-primary hover:text-on-primary transition-all shadow-[4px_4px_0px_0px_rgba(162,58,0,0.2)] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] btn-shine">
+                <span class="material-symbols-outlined">add</span>
+                Load More Projects
+            </button>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-inverse-surface dark:bg-surface-container-lowest text-primary-fixed dark:text-primary w-full bottom-0 border-t-4 border-primary">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-padding w-full max-w-full mx-auto">
+        <div class="flex flex-col gap-4">
+            <span class="text-headline-md font-headline-md text-on-primary-container font-extrabold tracking-tight">NR Construction &amp; Consultancy</span>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 mt-4">Built for Industrial Excellence. Delivering quality construction and honest service since day one.</p>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h4 class="font-label-bold text-label-bold text-on-secondary mb-2 uppercase tracking-wider">Quick Links</h4>
+            <a class="text-body-md font-body-md text-surface-variant opacity-80 hover:text-primary-fixed-dim underline transition-all" href="about.html">About Us</a>
+            <a class="text-body-md font-body-md text-surface-variant opacity-80 hover:text-primary-fixed-dim underline transition-all" href="services.html">Our Services</a>
+            <a class="text-body-md font-body-md text-surface-variant opacity-80 hover:text-primary-fixed-dim underline transition-all" href="projects.html">Projects</a>
+            <a class="text-body-md font-body-md text-surface-variant opacity-80 hover:text-primary-fixed-dim underline transition-all" href="contact.html">Contact Us</a>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h4 class="font-label-bold text-label-bold text-on-secondary mb-2 uppercase tracking-wider">Contact Us</h4>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">location_on</span> SHOP NO 8, SHIV SHAKTI MARKET, ANADRA CIRCLE, Sirohi, Rajasthan 307001</p>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">call</span> 077918 11181</p>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">mail</span> nrconstruction008@gmail.com</p>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h4 class="font-label-bold text-label-bold text-on-secondary mb-2 uppercase tracking-wider">Newsletter</h4>
+            <p class="text-body-md font-body-md text-surface-variant opacity-80 mb-2">Subscribe to our newsletter for latest updates.</p>
+            <div class="flex w-full">
+                <input class="w-full bg-surface-container text-on-surface px-4 py-3 border border-outline focus:border-primary focus:ring-2 focus:ring-primary rounded-l outline-none font-body-md text-body-md transition-all" placeholder="Your Email" type="email"/>
+                <button class="bg-primary hover:bg-primary-container text-on-primary px-4 py-3 rounded-r transition-colors"><span class="material-symbols-outlined">send</span></button>
+            </div>
+        </div>
+    </div>
+    <div class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline/20 px-margin-mobile md:px-margin-desktop py-6 text-center">
+        <p class="text-body-md font-body-md text-surface-variant opacity-60"> 2024 NR Construction &amp; Consultancy. All Rights Reserved. Built for Industrial Excellence.</p>
+    </div>
+</footer>
+
+<script>
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+    }, 800);
+});
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => {
+    observer.observe(el);
+});
+
+// Filter functionality
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+        document.querySelectorAll('.project-item').forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                item.classList.remove('hidden');
+                item.style.position = 'relative';
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    });
+});
+
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.pageYOffset > 50) {
+        navbar.classList.add('shadow-lg');
+    } else {
+        navbar.classList.remove('shadow-lg');
+    }
+});
+
+document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+    menu.classList.toggle('hidden');
+    icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+});
+</script>
+<script src="chatbot.js"></script>
+</body>
+</html>
